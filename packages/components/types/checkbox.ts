@@ -1,4 +1,4 @@
-import { ExtractPropTypes, PropType } from "vue";
+import type{ ExtractPropTypes, PropType } from "vue";
 
 export const checkboxProps = {
   // 绑定值
@@ -18,9 +18,9 @@ export const checkboxProps = {
 
 export const checkboxEmits = {
   // 数据更新
-  "update:modelValue": (value: boolean | string | number) => value,
+  "update:modelValue": (value: boolean | string | number) => typeof value === "boolean",
   // 选中状态改变
-  change: (value: boolean) => value,
+  change: (value: boolean) => typeof value === "boolean",
 };
 
 export type CheckboxProps = Partial<ExtractPropTypes<typeof checkboxProps>>;

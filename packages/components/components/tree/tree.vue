@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, provide, ref, unref, useSlots, watch } from "vue";
+import { computed, onMounted, provide, ref, unref, useSlots, watch } from "vue";
 import { createNamespace } from "@aeolian-design/utils/src/create";
 import AoTreeNode from "./treeNode.vue";
 import {
@@ -50,6 +50,7 @@ function tarversal(
       disabled: !!node.disabled,
       // 如果node没有isLeaf属性，则根据children是否为空来判断
       isLeaf: node.isLeaf ?? children?.length === 0,
+      parentKey: parent?.key,
     };
 
     if (children?.length > 0) {
@@ -215,7 +216,97 @@ provide(treeInjectKey, {
   slots: useSlots(),
 });
 
-console.log(flattenTree.value);
+const checkedKeysRefs = ref(new Set(props.defaultCheckedKeys));
+
+function isChecked(node: TreeNode): boolean {
+  return checkedKeysRefs.value.has(node.key);
+}
+
+function isDisabled(node: TreeNode): boolean {
+  return node.disabled;
+}
+
+const indeterminateRefs = ref(new Set());
+function isIndeterminate(node: TreeNode): boolean {
+  return indeterminateRefs.value.has(node.key);
+}
+
+// 由父节点改变子节点的状态
+function toggle(node: TreeNode, checked: boolean) {
+  if (!node) return;
+  const checkedKeys = checkedKeysRefs.value;
+
+  if (checked) {
+    // 选中的时候除去半选状态
+    indeterminateRefs.value.delete(node.key);
+  }
+
+  // 从key列表中添加或者删除
+  checkedKeys[checked ? "add" : "delete"](node.key);
+  const children = node.children;
+  if (children) {
+    children.forEach((child) => {
+      toggle(child, checked);
+    });
+  }
+}
+
+function finedNode(key: Key) {
+  return flattenTree.value.find((node) => node.key === key);
+}
+
+// 由子节点状态改变修改父节点选中状态
+function updateCheckedKeys(node: TreeNode) {
+  if (node.parentKey) {
+    const parentNode = finedNode(node.parentKey);
+
+    if (parentNode) {
+      let allChecked = true; //默认儿子全选
+      let hasChecked = false; // 默认儿子没有选中
+
+      const nodes = parentNode.children;
+      for (const node of nodes) {
+        if (checkedKeysRefs.value.has(node.key)) {
+          // 儿子被选中
+          hasChecked = true;
+        } else if (indeterminateRefs.value.has(node.key)) {
+          // 儿子半选
+          allChecked = false;
+          hasChecked = true;
+        } else {
+          // 儿子没有选中
+          allChecked = false;
+        }
+      }
+
+      if (allChecked) {
+        // 父节点全选
+        checkedKeysRefs.value.add(parentNode.key);
+        indeterminateRefs.value.delete(parentNode.key);
+      } else if (hasChecked) {
+        // 父节点半选
+        checkedKeysRefs.value.delete(parentNode.key);
+        indeterminateRefs.value.add(parentNode.key);
+      }
+      updateCheckedKeys(parentNode);
+    }
+  }
+}
+
+function toggleCheck(node: TreeNode, checked: boolean) {
+  toggle(node, checked);
+  updateCheckedKeys(node);
+}
+
+onMounted(() => {
+  // 初始化节点选中状态
+  checkedKeysRefs.value.forEach((key: Key) => {
+    const node = finedNode(key);
+    if (node) {
+      toggleCheck(node, true);
+    }
+  });
+});
 </script>
 
 <template>
@@ -229,6 +320,11 @@ console.log(flattenTree.value);
         :selectedKeys="selectKeysRef"
         @toggle="toggleExpand"
         @select="handleSelect"
+        @check="toggleCheck"
+        :show-checkbox="showCheckbox"
+        :checked="isChecked(node)"
+        :disabled="isDisabled(node)"
+        :indeterminate="isIndeterminate(node)"
       >
         <div :class="bem.e('element')">{{ node.label }}</div>
       </ao-tree-node>

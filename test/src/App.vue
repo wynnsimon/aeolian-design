@@ -111,7 +111,7 @@ const tableData = Array.from({ length: 10000 }, (_, i) => {
   });
 });
 
-const check = ref(false);
+const check = ref(true);
 </script>
 
 <template>
@@ -124,14 +124,23 @@ const check = ref(false);
       <AppleOutlined />
     </ao-icon>
 
+    {{ check }}
     <ao-checkbox
       v-model="check"
-      :disabled="true"
+      :disabled="false"
       :indeterminate="true"
       label="测试"
+      @change="(value) => console.log(value)"
     ></ao-checkbox>
 
-    <ao-tree :data="data" v-model:selected-keys="value" selectable multiple>
+    <ao-tree
+      :data="data"
+      v-model:selected-keys="value"
+      :default-checked-keys="['40', '41']"
+      selectable
+      multiple
+      show-checkbox
+    >
       <template #default="{ node }">{{ node.key }}-{{ node.label }}</template>
     </ao-tree>
 

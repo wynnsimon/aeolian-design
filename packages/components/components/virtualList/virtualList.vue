@@ -33,7 +33,6 @@ const showList = computed(() => {
 });
 
 function handleScroll() {
-  console.log(containerRef.value?.scrollTop);
   start.value = Math.floor(containerRef.value!.scrollTop / props.itemHeight);
 }
 </script>

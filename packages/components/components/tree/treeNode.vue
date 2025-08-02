@@ -4,6 +4,7 @@ import { treeNodeEmits, treeNodeProps } from "../../types/tree";
 import { CaretRightOutlined, Loading3QuartersOutlined } from "@vicons/antd";
 import { computed } from "vue";
 import AoTreeNodeContext from "./treeNodeContext";
+import AoCheckbox from "../checkbox/checkbox.vue";
 
 const props = defineProps(treeNodeProps);
 const emits = defineEmits(treeNodeEmits);
@@ -30,6 +31,10 @@ function handleSelect() {
     emits("select", props.node);
   }
 }
+
+function handleCheckChange(value: boolean) {
+  emits("check", props.node!, value);
+}
 </script>
 
 <template>
@@ -55,6 +60,13 @@ function handleSelect() {
           <CaretRightOutlined v-else />
         </ao-icon>
       </span>
+      <ao-checkbox
+        v-if="showCheckbox"
+        :model-value="checked"
+        :disabled="disabled"
+        :indeterminate="indeterminate"
+        @change="handleCheckChange"
+      ></ao-checkbox>
       <span :class="[bem.e('label')]" @click="handleSelect">
         <ao-tree-node-context :node="node"></ao-tree-node-context>
       </span>

@@ -23,6 +23,7 @@ export interface TreeNode extends Required<TreeOption> {
   level: number;
   rawNode: TreeOption;
   children: TreeNode[];
+  parentKey: Key | undefined;
 }
 
 /**
@@ -65,6 +66,14 @@ export const treeProps = {
     type: Boolean,
     default: false,
   },
+  defaultCheckedKeys: {
+    type: Array as PropType<Key[]>,
+    default: () => [],
+  },
+  showCheckbox: {
+    type: Boolean,
+    default: false,
+  },
 } as const;
 
 // 树形组件节点的属性类型
@@ -85,11 +94,19 @@ export const treeNodeProps = {
     type: Array as PropType<Key[]>,
     default: () => [],
   },
+  showCheckbox: {
+    type: Boolean,
+    default: false,
+  },
+  checked: Boolean,
+  disabled: Boolean,
+  indeterminate: Boolean,
 };
 
 export const treeNodeEmits = {
   toggle: (node: TreeNode) => node,
   select: (node: TreeNode) => node,
+  check: (node: TreeNode,value: boolean) => typeof value === "boolean",
 };
 export const treeEmits = {
   "update:selectedKeys": (keys: Key[]) => keys,
