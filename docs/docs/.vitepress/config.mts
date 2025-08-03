@@ -9,7 +9,7 @@ export default defineConfig({
     nav: [
       { text: "主页", link: "/" },
       { text: "指南", link: "/guide/installation" },
-      { text: "组件", link: "/components/icon" },
+      { text: "组件", link: "/components" },
     ],
 
     sidebar: {
@@ -25,7 +25,17 @@ export default defineConfig({
       "/components": [
         {
           text: "组件",
-          items: [{ text: "图标", link: "/components/icon" }],
+          items: [
+            { text: "图标", link: "/components/icon" },
+            {
+              text: "按钮",
+              link: "/components/button",
+            },
+            {
+              text: "复选框",
+              link: "/components/checkbox",
+            },
+          ],
         },
       ],
     },

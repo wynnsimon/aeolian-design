@@ -3,6 +3,7 @@ import { createNamespace } from "@aeolian-design/utils/src/create";
 import { inputProps, inputEmits } from "../../types/input";
 import {
   computed,
+  inject,
   nextTick,
   onMounted,
   ref,
@@ -11,6 +12,7 @@ import {
   watch,
 } from "vue";
 import { EyeInvisibleOutlined, EyeOutlined, CloseOutlined } from "@vicons/antd";
+import { formItemContextKey } from "../../types/form";
 
 defineOptions({
   name: "ao-input",
@@ -20,6 +22,7 @@ const props = defineProps(inputProps);
 const emits = defineEmits(inputEmits);
 const slots = useSlots();
 const attrs = useAttrs();
+const formItemContext = inject(formItemContextKey);
 
 const inputRef = ref<HTMLInputElement | null>(null);
 
@@ -33,6 +36,7 @@ function setNativeInputValue() {
 watch(
   () => props.modelValue,
   () => {
+    formItemContext?.validate("change").catch(() => {}); //catch捕获异常，防止传递给父组件
     setNativeInputValue();
   }
 );
@@ -74,6 +78,11 @@ function handleClear() {
   emits("clear");
   focus();
 }
+
+function handleBlur(e: FocusEvent) {
+  formItemContext?.validate("blur").catch(() => {}); //catch捕获异常，防止传递给父组件
+  emits("blur", e);
+}
 </script>
 
 <template>
@@ -109,7 +118,7 @@ function handleClear() {
           @input="handleInput"
           @change="(e)=> emits('change', (e.target as HTMLInputElement).value)"
           @focus="(e) => emits('focus', e)"
-          @blur="(e) => emits('blur', e)"
+          @blur="handleBlur"
           :class="[
             bem.e('inner'),
             'w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all',

@@ -9,4 +9,6 @@ declare module "vue" {
   }
 }
 
+export type FormInstance = InstanceType<typeof Form>;
+
 export default Form;

@@ -1,9 +1,29 @@
 import { createApp } from "vue";
 import "./style.css";
 import App from "./App.vue";
-import { Icon,Tree,VirtualList,Checkbox,Button,CanvasTable,Input } from "@aeolian-design/components";
+import {
+  Icon,
+  Tree,
+  VirtualList,
+  Checkbox,
+  Button,
+  CanvasTable,
+  Input,
+  Form,
+  FormItem,
+} from "@aeolian-design/components";
 
-const plugins = [Icon,Tree,VirtualList,Checkbox,Button,CanvasTable,Input];
+const plugins = [
+  Icon,
+  Tree,
+  VirtualList,
+  Checkbox,
+  Button,
+  CanvasTable,
+  Input,
+  Form,
+  FormItem,
+];
 
 const app = createApp(App);
 plugins.forEach((plugin) => app.use(plugin));

@@ -1,11 +1,8 @@
 <script setup lang="ts">
-import {
-  type Key,
-  type TreeNode,
-  type TreeOption,
-} from "@aeolian-design/components/types/tree";
+import type { FormInstance } from "@aeolian-design/components/components/form";
+import { type Key } from "@aeolian-design/components/types/tree";
 import { AppleOutlined } from "@vicons/antd";
-import { ref } from "vue";
+import { reactive, ref } from "vue";
 
 // const data = ref<TreeOption[]>([
 //   {
@@ -115,17 +112,74 @@ const tableData = Array.from({ length: 1000 }, (_, i) => {
 const check = ref(true);
 
 const username = ref("aeolian");
+
+const state = reactive({ username: "", password: "" });
+const formRef = ref<FormInstance>();
+
+function validateForm() {
+  formRef.value
+    ?.validate((valid, errors) => {
+      console.log("回调函数的方式", valid, errors);
+    })
+    .then(() => {
+      console.log("Promise的方式:校验成功");
+    })
+    .catch(() => {
+      console.log("Promise的方式:校验失败");
+    });
+}
 </script>
 
 <template>
   <div>
-    <ao-icon :color="'blue'" :size="40">
-      <AppleOutlined />
-    </ao-icon>
+    <ao-form
+      ref="formRef"
+      :model="state"
+      :rules="[
+        {
+          username: {
+            min: 3,
+            max: 10,
+            message: '用户名长度在3-10个字符',
+            trigger: ['blur', 'change'],
+          },
+        },
+      ]"
+    >
+      <ao-form-item
+        prop="username"
+        label="用户名"
+        :rules="[
+          { required: true, message: '请输入用户名', trigger: 'blur' },
+          {
+            min: 3,
+            max: 10,
+            message: '用户名3-10位',
+            trigger: ['blur', 'change'],
+          },
+        ]"
+      >
+        <ao-input
+          placeholder="请输入用户名"
+          v-model="state.username"
+        ></ao-input>
+        <template #label> 用户名 </template>
+      </ao-form-item>
 
-    <ao-icon :color="'#26fec3'" :size="'60px'">
-      <AppleOutlined />
-    </ao-icon>
+      <ao-form-item
+        prop="password"
+        label="密码"
+        :rules="[{ required: true, message: '请输入密码', trigger: 'blur' }]"
+      >
+        <ao-input
+          placeholder="请输入密码"
+          v-model="state.password"
+          type="password"
+        ></ao-input>
+        <template #label> 密码 </template>
+      </ao-form-item>
+      <ao-button type="primary" @click="validateForm"> 校验 </ao-button>
+    </ao-form>
 
     {{ username }}
     <ao-input
@@ -157,18 +211,6 @@ const username = ref("aeolian");
         :item-width="100"
       ></ao-canvas-table>
     </div>
-    <ao-button
-      type="primary"
-      size="small"
-      icon-placement="right"
-      @click="console.log(1)"
-      @mousedown="console.log(2)"
-      round
-      >你好
-      <template #icon>
-        <AppleOutlined />
-      </template>
-    </ao-button>
 
     {{ check }}
     <ao-checkbox
