@@ -9,6 +9,8 @@ import CanvasTable from "./components/canvasTable";
 import Input from "./components/input";
 import Form from "./components/form";
 import FormItem from "./components/formItem";
+import Upload from "./components/upload";
+import Calendar from "./components/calendar";
 
 export {
   Icon,
@@ -20,4 +22,6 @@ export {
   Input,
   Form,
   FormItem,
+  Upload,
+  Calendar
 };

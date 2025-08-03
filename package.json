@@ -11,6 +11,7 @@
     "@aeolian-design/components": "workspace:^",
     "@aeolian-design/utils": "workspace:^",
     "async-validator": "^4.2.5",
+    "dayjs": "^1.11.13",
     "vue": "^3.5.17"
   },
   "devDependencies": {

@@ -11,6 +11,8 @@ import {
   Input,
   Form,
   FormItem,
+  Upload,
+  Calendar,
 } from "@aeolian-design/components";
 
 const plugins = [
@@ -23,6 +25,8 @@ const plugins = [
   Input,
   Form,
   FormItem,
+  Upload,
+  Calendar,
 ];
 
 const app = createApp(App);

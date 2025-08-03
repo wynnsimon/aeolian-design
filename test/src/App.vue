@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { FormInstance } from "@aeolian-design/components/components/form";
 import { type Key } from "@aeolian-design/components/types/tree";
+import type { UploadRawFile } from "@aeolian-design/components/types/upload";
 import { AppleOutlined } from "@vicons/antd";
 import { reactive, ref } from "vue";
 
@@ -128,10 +129,25 @@ function validateForm() {
       console.log("Promise的方式:校验失败");
     });
 }
+
+function handleUpload(file: UploadRawFile) {
+  console.log("上传成功", file);
+  return false;
+}
+
+const curDate = ref(new Date());
 </script>
 
 <template>
   <div>
+    <!-- <ao-upload :before-upload="handleUpload" multiple>
+      <ao-button type="primary">点我上传</ao-button>
+    </ao-upload> -->
+
+    {{ curDate }}
+    <ao-calendar v-model="curDate">
+    </ao-calendar>
+
     <ao-form
       ref="formRef"
       :model="state"
