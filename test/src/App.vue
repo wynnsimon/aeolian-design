@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {
-  Key,
+  type Key,
   type TreeNode,
   type TreeOption,
 } from "@aeolian-design/components/types/tree";
@@ -105,13 +105,16 @@ const tableCols = Array.from({ length: 10 }, (_, i) => {
     key: i,
   };
 });
-const tableData = Array.from({ length: 10000 }, (_, i) => {
+
+const tableData = Array.from({ length: 1000 }, (_, i) => {
   return Array.from({ length: 10 }, (_, j) => {
     return `${i}-${j}`;
   });
 });
 
 const check = ref(true);
+
+const username = ref("aeolian");
 </script>
 
 <template>
@@ -123,6 +126,49 @@ const check = ref(true);
     <ao-icon :color="'#26fec3'" :size="'60px'">
       <AppleOutlined />
     </ao-icon>
+
+    {{ username }}
+    <ao-input
+      v-model="username"
+      placeholder="请输入用户名"
+      @blur="(e) => console.log(e)"
+      @focus="(e) => console.log(e)"
+      :show-password="true"
+    >
+      <template #prepend>aeolian</template>
+      <template #prefixIcon>
+        <ao-icon>
+          <AppleOutlined />
+        </ao-icon>
+      </template>
+      <template #suffixIcon>
+        <ao-icon>
+          <AppleOutlined />
+        </ao-icon>
+      </template>
+      <template #append> design </template>
+    </ao-input>
+
+    <div class="w-240 h-200">
+      <ao-canvas-table
+        :columns="tableCols"
+        :data="tableData"
+        :item-height="50"
+        :item-width="100"
+      ></ao-canvas-table>
+    </div>
+    <ao-button
+      type="primary"
+      size="small"
+      icon-placement="right"
+      @click="console.log(1)"
+      @mousedown="console.log(2)"
+      round
+      >你好
+      <template #icon>
+        <AppleOutlined />
+      </template>
+    </ao-button>
 
     {{ check }}
     <ao-checkbox

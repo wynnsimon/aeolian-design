@@ -73,6 +73,26 @@ export default defineConfig({
         },
       },
       // 错误色（危险色）
+      danger: {
+        DEFAULT: "#f56c6c",
+        light: {
+          2: "#c45656",
+          3: "#f89898",
+          5: "#fac6c6",
+          7: "#fcd3d3",
+          8: "#fde2e2",
+          9: "#fef0f0",
+        },
+        // 暗色主题变体
+        dark: {
+          2: "#f78989",
+          3: "#b25252",
+          5: "#854040",
+          7: "#582e2e",
+          8: "#412626",
+          9: "#2a1d1d",
+        },
+      },
       error: {
         DEFAULT: "#f56c6c",
         light: {
