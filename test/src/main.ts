@@ -13,6 +13,9 @@ import {
   FormItem,
   Upload,
   Calendar,
+  Transfer,
+  Collapse,
+  CollapseItem,
 } from "@aeolian-design/components";
 
 const plugins = [
@@ -27,6 +30,9 @@ const plugins = [
   FormItem,
   Upload,
   Calendar,
+  Transfer,
+  Collapse,
+  CollapseItem,
 ];
 
 const app = createApp(App);

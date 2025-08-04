@@ -11,6 +11,9 @@ import Form from "./components/form";
 import FormItem from "./components/formItem";
 import Upload from "./components/upload";
 import Calendar from "./components/calendar";
+import Transfer from "./components/transfer";
+import Collapse from "./components/collapse";
+import {CollapseItem} from "./components/collapse";
 
 export {
   Icon,
@@ -23,5 +26,8 @@ export {
   Form,
   FormItem,
   Upload,
-  Calendar
+  Calendar,
+  Transfer,
+  Collapse,
+  CollapseItem,
 };

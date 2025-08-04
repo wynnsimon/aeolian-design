@@ -4,6 +4,8 @@ import { type Key } from "@aeolian-design/components/types/tree";
 import type { UploadRawFile } from "@aeolian-design/components/types/upload";
 import { AppleOutlined } from "@vicons/antd";
 import { reactive, ref } from "vue";
+import Transfer from './components/transfer.vue'
+import Collapse from './components/collapse.vue'
 
 // const data = ref<TreeOption[]>([
 //   {
@@ -143,6 +145,10 @@ const curDate = ref(new Date());
     <!-- <ao-upload :before-upload="handleUpload" multiple>
       <ao-button type="primary">点我上传</ao-button>
     </ao-upload> -->
+
+    <collapse></collapse>
+
+    <transfer></transfer>
 
     {{ curDate }}
     <ao-calendar v-model="curDate">
