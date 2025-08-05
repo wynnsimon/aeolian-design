@@ -13,7 +13,8 @@ import Upload from "./components/upload";
 import Calendar from "./components/calendar";
 import Transfer from "./components/transfer";
 import Collapse from "./components/collapse";
-import {CollapseItem} from "./components/collapse";
+import { CollapseItem } from "./components/collapse";
+import Tooltip from "./components/tooltip";
 
 export {
   Icon,
@@ -30,4 +31,5 @@ export {
   Transfer,
   Collapse,
   CollapseItem,
+  Tooltip,
 };

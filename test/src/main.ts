@@ -16,6 +16,7 @@ import {
   Transfer,
   Collapse,
   CollapseItem,
+  Tooltip,
 } from "@aeolian-design/components";
 
 const plugins = [
@@ -33,6 +34,7 @@ const plugins = [
   Transfer,
   Collapse,
   CollapseItem,
+  Tooltip,
 ];
 
 const app = createApp(App);
