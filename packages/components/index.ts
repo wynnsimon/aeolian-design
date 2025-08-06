@@ -15,6 +15,8 @@ import Transfer from "./components/transfer";
 import Collapse from "./components/collapse";
 import { CollapseItem } from "./components/collapse";
 import Tooltip from "./components/tooltip";
+import Message from "./components/message";
+export * from "./components/message";
 
 export {
   Icon,
@@ -32,4 +34,5 @@ export {
   Collapse,
   CollapseItem,
   Tooltip,
+  Message,
 };

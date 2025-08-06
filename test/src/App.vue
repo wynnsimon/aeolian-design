@@ -7,6 +7,7 @@ import { reactive, ref } from "vue";
 import Transfer from './test/transfer.vue'
 import Collapse from './test/collapse.vue'
 import Tooltip from "./test/tooltip.vue";
+import Message from "./test/message.vue";
 
 // const data = ref<TreeOption[]>([
 //   {
@@ -146,6 +147,8 @@ const curDate = ref(new Date());
     <!-- <ao-upload :before-upload="handleUpload" multiple>
       <ao-button type="primary">点我上传</ao-button>
     </ao-upload> -->
+
+    <Message></Message>
 
     <Tooltip></Tooltip>
 
