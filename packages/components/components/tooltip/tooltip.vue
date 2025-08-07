@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref, watch, type Ref } from "vue";
+import { onMounted, onUnmounted, reactive, ref, watch, type Ref } from "vue";
 import { tooltipProps, tooltipEmits } from "../../types/tooltip";
 import { createNamespace } from "@aeolian-design/utils/src/create";
 import { createPopper, type Instance } from "@popperjs/core";
@@ -37,9 +37,9 @@ watch(
   { flush: "post" }
 );
 
-let events: Record<string, any> = {};
+let events = reactive<Record<string, any>>({});
 // 鼠标移动出所有的包括tooltip才关闭
-let outerEvents: Record<string, any> = {};
+let outerEvents = reactive<Record<string, any>>({});
 function open() {
   isOpen.value = true;
   emit("visibleChange", true);
@@ -51,6 +51,8 @@ function close() {
 }
 
 function attachEvents() {
+  Object.keys(events).forEach(key => delete events[key]);
+  Object.keys(outerEvents).forEach(key => delete outerEvents[key]);
   if (props.trigger === "hover") {
     events["mouseenter"] = open;
     outerEvents["mouseleave"] = close;
@@ -118,16 +120,16 @@ onMounted(() => {
       ref="popperRef"
     >
       <div
-        class="backdrop-blur-md bg-black/80 text-white text-sm py-2 px-4 rounded-xl shadow-xl break-words max-w-200px border border-white/10"
+        class="bg-black/40 text-white text-sm py-1 px-3 rounded shadow-lg break-words max-w-200px"
         :class="{
           'after:content-[\'\'] after:absolute after:border-4 after:border-transparent': true,
-          'after:border-t-black/80 after:border-b-0 after:-bottom-1.5 after:left-1/2 after:-translate-x-1/2':
+          'after:border-t-gray-900 after:border-b-0 after:-bottom-1 after:left-1/2 after:-translate-x-1/2':
             props.placement.includes('top'),
-          'after:border-b-black/80 after:border-t-0 after:-top-1.5 after:left-1/2 after:-translate-x-1/2':
+          'after:border-b-gray-900 after:border-t-0 after:-top-1 after:left-1/2 after:-translate-x-1/2':
             props.placement.includes('bottom'),
-          'after:border-l-black/80 after:border-r-0 after:-right-1.5 after:top-1/2 after:-translate-y-1/2':
+          'after:border-l-gray-900 after:border-r-0 after:-right-1 after:top-1/2 after:-translate-y-1/2':
             props.placement.includes('left'),
-          'after:border-r-black/80 after:border-l-0 after:-left-1.5 after:top-1/2 after:-translate-y-1/2':
+          'after:border-r-gray-900 after:border-l-0 after:-left-1 after:top-1/2 after:-translate-y-1/2':
             props.placement.includes('right'),
         }"
       >

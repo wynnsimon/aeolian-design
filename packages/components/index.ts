@@ -11,7 +11,6 @@ import Form from "./components/form";
 import FormItem from "./components/formItem";
 import Upload from "./components/upload";
 import Calendar from "./components/calendar";
-import Transfer from "./components/transfer";
 import Collapse from "./components/collapse";
 import { CollapseItem } from "./components/collapse";
 import Tooltip from "./components/tooltip";
@@ -30,7 +29,6 @@ export {
   FormItem,
   Upload,
   Calendar,
-  Transfer,
   Collapse,
   CollapseItem,
   Tooltip,
