@@ -8,7 +8,7 @@ import Button from "./components/button";
 import CanvasTable from "./components/canvasTable";
 import Input from "./components/input";
 import Form from "./components/form";
-import FormItem from "./components/formItem";
+import { FormItem } from "./components/form";
 import Upload from "./components/upload";
 import Calendar from "./components/calendar";
 import Collapse from "./components/collapse";

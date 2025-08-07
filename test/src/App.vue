@@ -14,16 +14,16 @@ import TestVirtualList from "./test/virtualList.vue";
 
 <template>
   <div>
-    <!-- <test-message></test-message> -->
+    <test-message></test-message>
     <test-tooltip></test-tooltip>
-    <!-- <test-collapse></test-collapse>
+    <test-collapse></test-collapse>
     <test-calendar></test-calendar>
     <test-form></test-form>
     <test-input></test-input>
     <test-canvas-table></test-canvas-table>
     <test-check-box></test-check-box>
     <test-tree></test-tree>
-    <test-virtual-list></test-virtual-list> -->
+    <test-virtual-list></test-virtual-list>
   </div>
 </template>
 
