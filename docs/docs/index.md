@@ -9,7 +9,7 @@ hero:
   text: "呆虫仙尊的组件库"
   tagline: 中文文档
   image:
-    src: /.vitepress/assets/images/logo.png
+    src: /logo.png
     alt: Aeolian Design
   actions:
     - theme: brand
