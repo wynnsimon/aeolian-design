@@ -1,6 +1,6 @@
 # Aeolian Design
 
-一个基于 Vue 3 的现代化 UI 组件库，专为构建美观、高性能的 Web 应用而设计。
+一个基于 Vue 3 和UnoCSS 的现代化 UI 组件库，专为构建美观、高性能的 Web 应用而设计。
 
 ## 特性
 
