@@ -15,7 +15,7 @@ export default defineConfig({
   rewrites,
 
   // #region fav
-  head: [["link", { rel: "icon", href: "./public/logo.png" }]],
+  head: [["link", { rel: "icon", href: "/logo.png" }]],
   // #endregion fav
 
   base: "/", //网站部署到github的vitepress这个仓库里
@@ -62,7 +62,7 @@ export default defineConfig({
   //主题配置
   themeConfig: {
     //左上角logo
-    logo: "./public/logo.png",
+    logo: "/logo.png",
 
     //编辑本页
     editLink: {
