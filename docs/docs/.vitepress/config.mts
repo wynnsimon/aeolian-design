@@ -66,7 +66,7 @@ export default defineConfig({
 
     //编辑本页
     editLink: {
-      pattern: "https://github.com/PinkDopeyBug/aeolian-design/docs/:path", // 改成自己的仓库
+      pattern: "https://github.com/PinkDopeyBug/aeolian-design/tree/main/docs/docs/:path", // 改成自己的仓库
       text: "在GitHub编辑本页",
     },
 
