@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { createMessage, getLastInstance } from "@aeolian-design/components";
+import { createMessage } from "@aeolian-design/components";
 import { onMounted } from "vue";
 
 defineOptions({

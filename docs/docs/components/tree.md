@@ -16,11 +16,24 @@ const treeData = ref([
     children: [
       {
         key: '1-1',
-        label: '二级节点1-1'
+        label: '二级节点1-1',
+        children: [
+          {
+            key: '1-1-1',
+            label: '三级节点1-1-1',
+            isLeaf: true
+          },
+          {
+            key: '1-1-2',
+            label: '三级节点1-1-2',
+            isLeaf: true
+          }
+        ]
       },
       {
         key: '1-2',
-        label: '二级节点1-2'
+        label: '二级节点1-2',
+        isLeaf: true
       }
     ]
   },
@@ -30,7 +43,8 @@ const treeData = ref([
     children: [
       {
         key: '2-1',
-        label: '二级节点2-1'
+        label: '二级节点2-1',
+        isLeaf: true
       }
     ]
   }
@@ -66,15 +80,7 @@ function onLoad(node) {
 }
 </script>
 
-<ao-tree :data="treeData" v-model:selected-keys="selectedKeys" selectable>
-  <template #default="{ node }">
-    {{ node.label }}
-  </template>
-</ao-tree>
-
-### 可选择的树
-
-<ao-tree :data="treeData" v-model:selected-keys="selectedKeys" selectable multiple>
+<ao-tree :data="treeData" v-model:selected-keys="selectedKeys">
   <template #default="{ node }">
     {{ node.label }}
   </template>

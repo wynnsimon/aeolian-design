@@ -159,12 +159,12 @@ function handlePick(cell: CalendarDateCell) {
     </div>
     <div :class="bem.e('body')" class="p-3">
       <table :class="bem.e('table')" class="w-full border-collapse table-fixed">
-        <thead>
+        <thead class="w-full">
           <tr>
             <th
               v-for="day in weekDays"
               :key="day"
-              class="p-3 text-gray-600 font-medium text-center border-b border-gray-300"
+              class="w-1/7 p-3 text-gray-600 font-medium text-center border-b border-gray-300"
             >
               {{ day }}
             </th>

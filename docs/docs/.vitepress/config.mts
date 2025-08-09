@@ -26,18 +26,50 @@ export default defineConfig({
         {
           text: "组件",
           items: [
-            { text: "图标", link: "/components/icon" },
+            { text: "Icon 图标", link: "/components/icon" },
             {
-              text: "按钮",
+              text: "Button 按钮",
               link: "/components/button",
             },
             {
-              text: "复选框",
+              text: "Checkbox 复选框",
               link: "/components/checkbox",
             },
             {
-              text: "树",
+              text: "Tree 树形组件",
               link: "/components/tree",
+            },
+            {
+              text: "Calendar 日历",
+              link: "/components/calendar",
+            },
+            {
+              text: "Canvas Table 画布表格",
+              link: "/components/canvasTable",
+            },
+            {
+              text: "Collapse 折叠面板",
+              link: "/components/collapse",
+            },
+            {
+              text: "Input 输入框",
+              link: "/components/input",
+            },
+            {
+              text: "Form 表单",
+              link: "/components/form",
+            },
+            {
+              text: "Message 消息提示",
+              link: "/components/message",
+            },
+            {
+              text: "Tooltip 文字提示",
+              link: "/components/tooltip",
+            },
+            {
+              text: "Virtual List 虚拟列表",
+              link: "/components/virtualList",
             },
           ],
         },

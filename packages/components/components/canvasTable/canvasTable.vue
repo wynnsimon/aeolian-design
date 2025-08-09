@@ -113,7 +113,7 @@ onMounted(() => {
 
 <template>
   <div
-    class="overflow-auto"
+    class="w-full h-full overflow-auto"
     :class="bem.b()"
     :style="{ width: itemWidth * columns!.length + 'px', height: itemHeight * (count + 1) + 'px' }"
   >
