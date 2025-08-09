@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "pnpm -C test dev",
-    "docs:dev": "pnpm -C docs dev"
+    "build": "pnpm -C test build",
+    "docs:dev": "dotenv -e .env -- pnpm -C docs dev",
+    "docs:build": "dotenv -e .env -- pnpm -C docs build"
   },
   "dependencies": {
     "@aeolian-design/components": "workspace:^",
@@ -19,6 +21,7 @@
     "@types/node": "^24.1.0",
     "@vitejs/plugin-vue": "^5.2.4",
     "@vitejs/plugin-vue-jsx": "^5.0.1",
+    "dotenv-cli": "^10.0.0",
     "eslint": "^9.32.0",
     "eslint-plugin-vue": "^10.3.0",
     "globals": "^16.3.0",
