@@ -1,4 +1,6 @@
 /* .vitepress\theme\style\blur.css */
+@import "./custom-block.css";
+
 :root {
   /* 首页下滑后导航透明 */
   .VPNavBar:not(.has-sidebar):not(.home.top) {
@@ -29,15 +31,18 @@
     /* 文档页导航中间透明 */
     .VPNavBar:not(.home.top) .content-body {
       background-color: rgba(255, 255, 255, 0);
-      backdrop-filter: blur(10px);
+      background-image: radial-gradient(
+        transparent 1px,
+        var(--custom-block-info-bg) 1px
+      );
+      background-size: 4px 4px;
+      backdrop-filter: saturate(50%) blur(4px);
     }
   }
 
   /* 移动端大纲栏透明 */
   .VPLocalNav {
     background-color: rgba(255, 255, 255, 0);
-    background-image: radial-gradient(transparent 1px, #fff 1px);
-    background-size: 4px 4px;
-    backdrop-filter: saturate(50%) blur(4px);
+    backdrop-filter: blur(10px);
   }
 }

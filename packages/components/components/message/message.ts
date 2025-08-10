@@ -23,7 +23,7 @@ function useZIndex(initialValue: number = 2000) {
 let seed = 1;
 const instances = shallowReactive<MessageContext[]>([]);
 export function createMessage(props: MessageProps) {
-  const {nextZIndex}=useZIndex();
+  const { nextZIndex } = useZIndex();
   const id = `message_${seed++}`;
   function destroyed() {
     const index = instances.findIndex((item) => item.id === id);
