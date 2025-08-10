@@ -58,5 +58,6 @@ aeolian-design/
 
 - [Element Plus](https://element-plus.org/zh-CN/)
 - [Ant Design Vue](https://www.antdv.com/docs/vue/introduce-cn)
+- [Shadcn UI](https://ui.shadcn.com/)
 
 Made with ❤️ by the Aeolian Design Team
