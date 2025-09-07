@@ -20,7 +20,7 @@ let filename = "";
 const message = ref<string>("");
 const cancelToken = axios.CancelToken;
 let source = cancelToken.source();
-
+const loading = ref(false);
 /**
  * 上传分片
  * @param chunks 分片
@@ -73,13 +73,20 @@ function uploadChunk(
 async function handleChange(e: Event) {
   const target = e.target as HTMLInputElement;
   if (!target.files) return;
+
+  loading.value = true;
   const files = target.files;
+  const startChunk = performance.now();
   fileChunks = await createChunk(files[0], props.chunkSize);
   fileHash = await hash(fileChunks);
+  const endChunk = performance.now();
+  console.log(`耗时: ${(endChunk - startChunk).toFixed(2)} ms`);
+
   filename = files[0].name;
   if (progressRef.value) {
     progressRef.value.max = fileChunks.length;
   }
+  loading.value = false;
 }
 
 async function handleUpload() {
@@ -129,7 +136,9 @@ async function verifyFile(url: string, data: object) {
       <span v-show="message">{{ message }}</span>
     </div>
     <div class="flex gap-2">
-      <ao-button type="primary" @click="handleUpload">上传</ao-button>
+      <ao-button :loading="loading" type="primary" @click="handleUpload"
+        >上传</ao-button
+      >
       <ao-button @click="handleStop">暂停</ao-button>
     </div>
   </span>

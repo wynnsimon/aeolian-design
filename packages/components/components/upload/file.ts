@@ -1,4 +1,6 @@
-import sparkMd5 from "spark-md5";
+import SparkMd5 from "spark-md5";
+
+const THREAD_COUNT = navigator.hardwareConcurrency || 4;
 
 /**
  * 计算哈希
@@ -6,16 +8,48 @@ import sparkMd5 from "spark-md5";
  * @returns 包含哈希值的promise对象，支持异步
  */
 export function hash(chunks: Blob[]): Promise<string> {
-  return new Promise((resolve) => {
-    const md5 = new sparkMd5.ArrayBuffer();
-    for (let i = 0; i < chunks.length; ++i) {
-      const fr = new FileReader();
-      fr.onload = (e: ProgressEvent<FileReader>) => {
-        if (e.target) md5.append(e.target.result as ArrayBuffer);
+  return new Promise((resolve, reject) => {
+    const workers: Worker[] = [];
+    const results: { index: number; hash: string }[] = [];
+
+    // 每个 worker 负责的 chunk 数量
+    const chunkSize = Math.ceil(chunks.length / THREAD_COUNT);
+    for (let i = 0; i < THREAD_COUNT; ++i) {
+      const worker = new Worker(new URL("./worker.ts", import.meta.url), {
+        type: "module",
+      });
+      workers.push(worker);
+
+      const start = i * chunkSize;
+      const end = Math.min(start + chunkSize, chunks.length);
+      const subChunks = chunks.slice(start, end);
+
+      worker.postMessage({ chunks: subChunks, index: i });
+
+      worker.onmessage = (e: MessageEvent) => {
+        const { type, hash, index } = e.data;
+        if (type === "done") {
+          results.push({ index, hash });
+          worker.terminate();
+
+          // 所有 worker 都完成
+          if (results.length === THREAD_COUNT) {
+            // 按 index 排序，保证顺序正确
+            results.sort((a, b) => a.index - b.index);
+
+            const spark = new SparkMd5();
+            results.forEach((r) => spark.append(r.hash));
+
+            resolve(spark.end());
+          }
+        }
       };
-      fr.readAsArrayBuffer(chunks[i]);
+
+      worker.onerror = (e: ErrorEvent) => {
+        reject(e);
+        worker.terminate();
+      };
     }
-    resolve(md5.end(false));
   });
 }
 
@@ -32,4 +66,3 @@ export async function createChunk(file: File, chunkSize: number) {
   }
   return result;
 }
-
