@@ -1,90 +1,136 @@
 <script setup lang="ts">
-import {
-  uploadProps,
-  type UploadContentProps,
-  type UploadFile,
-  type UploadFiles,
-  type UploadProgressEvent,
-  type UploadRawFile,
-} from "../../types/upload";
-import UploadContent from ".";
-import { computed, ref } from "vue";
+import { ref } from "vue";
+import { uploadProps } from "../../types/upload";
+import { createChunk, hash } from "./file";
+import axios from "axios";
 
 defineOptions({
   name: "ao-upload",
 });
 
 const props = defineProps(uploadProps);
+// 进度条实例
+const progressRef = ref<HTMLProgressElement | null>(null);
+// 文件分片列表
+let fileChunks: Blob[] = [];
+// 文件哈希
+let fileHash = "";
+// 文件名
+let filename = "";
+const message = ref<string>("");
+const cancelToken = axios.CancelToken;
+let source = cancelToken.source();
 
-const uploadFiles = ref<UploadFiles>(props.FileList);
+/**
+ * 上传分片
+ * @param chunks 分片
+ * @param hash 文件的哈希值
+ * @param filename 文件名
+ * @param uploaded 已经上传的切片索引数组，默认为空（主要用于断点续传）
+ */
+function uploadChunk(
+  chunks: Blob[],
+  hash: string,
+  filename: string,
+  uploaded: number[] = []
+) {
+  const tasks = chunks
+    .map((chunk, index) => {
+      if (uploaded.length > 0 && uploaded.includes(index)) {
+        return;
+      }
+      const formData = new FormData();
+      formData.append("chunk", chunk);
+      formData.append("chunkIndex", index.toString());
+      formData.append("filename", `${hash}-${filename}`);
 
-function findFile(rawFile: UploadRawFile) {
-  return uploadFiles.value.find((file) => file.uid === rawFile.uid);
+      return axios
+        .post(props.uploadUrl!, formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+          cancelToken: source.token,
+        })
+        .then(() => {
+          if (progressRef.value) {
+            ++progressRef.value.value;
+          }
+        });
+    })
+    .filter((item) => item);
+
+  Promise.all(tasks).then(() => {
+    axios
+      .post(props.mergeUrl!, {
+        filename: `${hash}-${filename}`,
+      })
+      .then((res) => {
+        console.log(res);
+      });
+  });
 }
 
-const uploadContentProps = computed<UploadContentProps>(() => {
-  return {
-    ...props,
-    onStart: (rawFile: UploadRawFile) => {
-      const uploadFile: UploadFile = {
-        uid: rawFile.uid,
-        name: rawFile.name,
-        size: rawFile.size,
-        status: "start",
-        percentage: 0,
-        raw: rawFile,
-      };
-      uploadFiles.value = [...uploadFiles.value, uploadFile];
-      props.onChange(uploadFile);
-    },
+async function handleChange(e: Event) {
+  const target = e.target as HTMLInputElement;
+  if (!target.files) return;
+  const files = target.files;
+  fileChunks = await createChunk(files[0], props.chunkSize);
+  fileHash = await hash(fileChunks);
+  filename = files[0].name;
+  if (progressRef.value) {
+    progressRef.value.max = fileChunks.length;
+  }
+}
 
-    onProgress: (e: UploadProgressEvent, rawFile: UploadRawFile) => {
-      const uploadFile = findFile(rawFile);
-      if (uploadFile) {
-        uploadFile.status = "uploading";
-        uploadFile.percentage = e.percentage;
-        props.onProgress(e, uploadFile, uploadFiles.value);
-      }
-    },
-    onRemove: async (rawFile: UploadRawFile) => {
-      const uploadFile = findFile(rawFile);
+async function handleUpload() {
+  // 开始上传
+  if (fileHash === "" || filename === "") return;
 
-      if (uploadFile) {
-        const r = await props.beforeRemove(uploadFile, uploadFiles.value);
-        if (r !== false) {
-          const fileList = uploadFiles.value;
-          fileList.splice(fileList.indexOf(uploadFile), 1);
-          props.onRemove(uploadFile, uploadFiles.value);
-        }
-      }
-    },
+  const res = await verifyFile(props.verifyUrl!, {
+    filename: `${fileHash}-${filename}`,
+  });
+  message.value = res.message;
 
-    onSuccess: (res: any, rawFile: UploadRawFile) => {
-      const uploadFile = findFile(rawFile);
-      if (uploadFile) {
-        uploadFile.status = "success";
-        const fileList = uploadFiles.value;
-        props.onSuccess(res, uploadFile, fileList);
+  switch (res.data.fileState) {
+    case 1:
+      if (progressRef.value) {
+        progressRef.value.value = progressRef.value?.max;
       }
-    },
-    onError: (err: Error, rawFile: UploadRawFile) => {
-      const uploadFile = findFile(rawFile);
-      if (uploadFile) {
-        uploadFile.status = "error";
-        const fileList = uploadFiles.value;
-        fileList.splice(fileList.indexOf(uploadFile), 1);
-        props.onError(err, uploadFile, fileList);
+      break;
+    default:
+      if (progressRef.value) {
+        progressRef.value.value = res.data.uploaded.length;
       }
-    },
-  };
-});
+      uploadChunk(fileChunks, fileHash, filename, res.data.uploaded);
+      break;
+  }
+}
+
+async function handleStop() {
+  // 暂停上传
+  source.cancel("终止上传");
+  source = cancelToken.source();
+  message.value = "暂停上传";
+}
+
+async function verifyFile(url: string, data: object) {
+  const result = await axios.post(url, data);
+  return result.data;
+}
 </script>
 
 <template>
-  <UploadContent v-bind="uploadContentProps">
-    <slot></slot>
-  </UploadContent>
-  {{ uploadFiles }}
+  <span>
+    <div>
+      <input type="file" @change="handleChange" multiple />
+    </div>
+    <div>
+      <progress ref="progressRef" value="0" max="100"></progress>
+      <span v-show="message">{{ message }}</span>
+    </div>
+    <div class="flex gap-2">
+      <ao-button type="primary" @click="handleUpload">上传</ao-button>
+      <ao-button @click="handleStop">暂停</ao-button>
+    </div>
+  </span>
 </template>
-
-<style scoped></style>

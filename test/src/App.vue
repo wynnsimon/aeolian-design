@@ -14,7 +14,8 @@ import TestVirtualList from "./test/virtualList.vue";
 
 <template>
   <div>
-    <test-message></test-message>
+    <test-upload></test-upload>
+    <!-- <test-message></test-message>
     <test-tooltip></test-tooltip>
     <test-collapse></test-collapse>
     <test-calendar></test-calendar>
@@ -23,7 +24,7 @@ import TestVirtualList from "./test/virtualList.vue";
     <test-canvas-table></test-canvas-table>
     <test-check-box></test-check-box>
     <test-tree></test-tree>
-    <test-virtual-list></test-virtual-list>
+    <test-virtual-list></test-virtual-list> -->
   </div>
 </template>
 

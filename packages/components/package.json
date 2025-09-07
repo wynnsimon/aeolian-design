@@ -12,7 +12,9 @@
   "packageManager": "pnpm@10.6.4",
   "dependencies": {
     "@popperjs/core": "^2.11.8",
-    "@vicons/antd": "^0.13.0"
+    "@vicons/antd": "^0.13.0",
+    "axios": "^1.11.0",
+    "spark-md5": "^3.0.2"
   },
   "devDependencies": {
     "@types/react": "^19.1.8"

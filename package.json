@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "pnpm -C test dev",
     "build": "pnpm -C test build",
+    "serve": "pnpm -C server dev",
     "docs:dev": "dotenv -e .env -- pnpm -C docs dev",
     "docs:build": "dotenv -e .env -- pnpm -C docs build"
   },

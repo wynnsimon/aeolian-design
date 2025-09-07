@@ -108,6 +108,7 @@ export default defineConfig({
               { text: "Checkbox 多选框", link: "/components/checkbox" },
               { text: "Input 输入框", link: "/components/input" },
               { text: "Form 表单", link: "/components/form" },
+              { text: "Upload 文件上传", link: "/components/upload" }
             ],
           },
           {
@@ -154,6 +155,7 @@ export default defineConfig({
           { text: "Checkbox 多选框", link: "/components/checkbox" },
           { text: "Input 输入框", link: "/components/input" },
           { text: "Form 表单", link: "/components/form" },
+          { text: "Upload 文件上传", link: "/components/upload" }
         ],
       },
       {
