@@ -15,6 +15,7 @@ import Collapse from "./components/collapse";
 import { CollapseItem } from "./components/collapse";
 import Tooltip from "./components/tooltip";
 import Message from "./components/message";
+import Editor from "./components/editor";
 export * from "./components/message";
 
 export {
@@ -33,4 +34,5 @@ export {
   CollapseItem,
   Tooltip,
   Message,
+  Editor,
 };

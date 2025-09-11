@@ -16,6 +16,7 @@ import {
   CollapseItem,
   Tooltip,
   Message,
+  Editor,
 } from "@aeolian-design/components";
 
 const plugins = [
@@ -34,6 +35,7 @@ const plugins = [
   CollapseItem,
   Tooltip,
   Message,
+  Editor,
 ];
 
 const app = createApp(App);

@@ -49,6 +49,7 @@ import {
   CollapseItem,
   Tooltip,
   Message,
+  Editor,
 } from "@aeolian-design/components";
 
 const plugins = [
@@ -67,6 +68,7 @@ const plugins = [
   CollapseItem,
   Tooltip,
   Message,
+  Editor,
 ];
 
 // 彩虹背景动画样式

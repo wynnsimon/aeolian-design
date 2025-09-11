@@ -66,7 +66,8 @@ export default defineConfig({
 
     //编辑本页
     editLink: {
-      pattern: "https://github.com/PinkDopeyBug/aeolian-design/tree/main/docs/docs/:path", // 改成自己的仓库
+      pattern:
+        "https://github.com/PinkDopeyBug/aeolian-design/tree/main/docs/docs/:path", // 改成自己的仓库
       text: "在GitHub编辑本页",
     },
 
@@ -108,7 +109,8 @@ export default defineConfig({
               { text: "Checkbox 多选框", link: "/components/checkbox" },
               { text: "Input 输入框", link: "/components/input" },
               { text: "Form 表单", link: "/components/form" },
-              { text: "Upload 文件上传", link: "/components/upload" }
+              { text: "Upload 文件上传", link: "/components/upload" },
+              { text: "Editor 富文本编辑器", link: "/components/editor" },
             ],
           },
           {
@@ -155,7 +157,8 @@ export default defineConfig({
           { text: "Checkbox 多选框", link: "/components/checkbox" },
           { text: "Input 输入框", link: "/components/input" },
           { text: "Form 表单", link: "/components/form" },
-          { text: "Upload 文件上传", link: "/components/upload" }
+          { text: "Upload 文件上传", link: "/components/upload" },
+          { text: "Editor 富文本编辑器", link: "/components/editor" },
         ],
       },
       {
@@ -224,7 +227,7 @@ export default defineConfig({
       next: "下一页",
     },
     search: {
-      provider: 'local'
-    }
+      provider: "local",
+    },
   },
 });

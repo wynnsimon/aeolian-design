@@ -10,12 +10,14 @@ import TestCanvasTable from "./test/canvasTable.vue";
 import TestCheckBox from "./test/checkbox.vue";
 import TestTree from "./test/tree.vue";
 import TestVirtualList from "./test/virtualList.vue";
+import TestEditor from "./test/editor.vue";
 </script>
 
 <template>
   <div>
-    <test-upload></test-upload>
-    <!-- <test-message></test-message>
+    <test-editor></test-editor>
+    <!-- <test-upload></test-upload>
+    <test-message></test-message>
     <test-tooltip></test-tooltip>
     <test-collapse></test-collapse>
     <test-calendar></test-calendar>
