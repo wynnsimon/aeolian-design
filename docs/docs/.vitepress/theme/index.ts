@@ -50,6 +50,7 @@ import {
   Tooltip,
   Message,
   Editor,
+  OnlineExcel,
 } from "@aeolian-design/components";
 
 const plugins = [
@@ -69,6 +70,7 @@ const plugins = [
   Tooltip,
   Message,
   Editor,
+  OnlineExcel,
 ];
 
 // 彩虹背景动画样式

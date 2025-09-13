@@ -7,6 +7,7 @@
     "dev": "pnpm -C test dev",
     "build": "pnpm -C test build",
     "serve": "pnpm -C server dev",
+    "serve:ws": "pnpm -C server dev:ws",
     "docs:dev": "dotenv -e .env -- pnpm -C docs dev",
     "docs:build": "dotenv -e .env -- pnpm -C docs build"
   },
@@ -15,7 +16,8 @@
     "@aeolian-design/utils": "workspace:^",
     "async-validator": "^4.2.5",
     "dayjs": "^1.11.13",
-    "vue": "^3.5.17"
+    "vue": "^3.5.17",
+    "vue-router": "^4.5.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.32.0",

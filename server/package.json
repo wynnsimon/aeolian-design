@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon src/app.js"
+    "dev": "nodemon src/app.js",
+    "dev:ws": "nodemon src/ws.js"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +19,8 @@
   "dependencies": {
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
-    "multiparty": "^4.2.3"
+    "multiparty": "^4.2.3",
+    "qs": "^6.14.0",
+    "ws": "^8.18.3"
   }
 }

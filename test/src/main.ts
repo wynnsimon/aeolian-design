@@ -1,5 +1,6 @@
 import { createApp } from "vue";
 import App from "./App.vue";
+import router from "./router";
 import {
   Icon,
   Tree,
@@ -17,6 +18,7 @@ import {
   Tooltip,
   Message,
   Editor,
+  OnlineExcel,
 } from "@aeolian-design/components";
 
 const plugins = [
@@ -36,9 +38,11 @@ const plugins = [
   Tooltip,
   Message,
   Editor,
+  OnlineExcel,
 ];
 
 const app = createApp(App);
+app.use(router);
 plugins.forEach((plugin) => app.use(plugin));
 
 app.mount("#app");

@@ -16,6 +16,7 @@ import { CollapseItem } from "./components/collapse";
 import Tooltip from "./components/tooltip";
 import Message from "./components/message";
 import Editor from "./components/editor";
+import OnlineExcel from "./components/onlineExcel";
 export * from "./components/message";
 
 export {
@@ -35,4 +36,5 @@ export {
   Tooltip,
   Message,
   Editor,
+  OnlineExcel
 };

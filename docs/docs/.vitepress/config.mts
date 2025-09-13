@@ -111,6 +111,10 @@ export default defineConfig({
               { text: "Form 表单", link: "/components/form" },
               { text: "Upload 文件上传", link: "/components/upload" },
               { text: "Editor 富文本编辑器", link: "/components/editor" },
+              {
+                text: "OnlineExcel 在线协同表格",
+                link: "/components/onlineExcel",
+              },
             ],
           },
           {
@@ -159,6 +163,7 @@ export default defineConfig({
           { text: "Form 表单", link: "/components/form" },
           { text: "Upload 文件上传", link: "/components/upload" },
           { text: "Editor 富文本编辑器", link: "/components/editor" },
+          { text: "OnlineExcel 在线协同表格", link: "/components/onlineExcel" },
         ],
       },
       {

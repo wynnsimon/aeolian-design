@@ -1,32 +1,40 @@
+<!-- App.vue -->
 <script setup lang="ts">
-import TestCollapse from "./test/collapse.vue";
-import TestTooltip from "./test/tooltip.vue";
-import TestMessage from "./test/message.vue";
-import TestCalendar from "./test/calendar.vue";
-import TestUpload from "./test/upload.vue";
-import TestForm from "./test/form.vue";
-import TestInput from "./test/input.vue";
-import TestCanvasTable from "./test/canvasTable.vue";
-import TestCheckBox from "./test/checkbox.vue";
-import TestTree from "./test/tree.vue";
-import TestVirtualList from "./test/virtualList.vue";
-import TestEditor from "./test/editor.vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+
+// 定义所有页面的路由配置
+const pages = [
+  { name: "Calendar", path: "/calendar" },
+  { name: "CanvasTable", path: "/canvas-table" },
+  { name: "Checkbox", path: "/checkbox" },
+  { name: "Collapse", path: "/collapse" },
+  { name: "Editor", path: "/editor" },
+  { name: "Form", path: "/form" },
+  { name: "Input", path: "/input" },
+  { name: "Message", path: "/message" },
+  { name: "OnlineExcel", path: "/online-excel" },
+  { name: "Tooltip", path: "/tooltip" },
+  { name: "Tree", path: "/tree" },
+  { name: "Upload", path: "/upload" },
+  { name: "VirtualList", path: "/virtual-list" },
+];
 </script>
 
 <template>
-  <div>
-    <test-editor></test-editor>
-    <!-- <test-upload></test-upload>
-    <test-message></test-message>
-    <test-tooltip></test-tooltip>
-    <test-collapse></test-collapse>
-    <test-calendar></test-calendar>
-    <test-form></test-form>
-    <test-input></test-input>
-    <test-canvas-table></test-canvas-table>
-    <test-check-box></test-check-box>
-    <test-tree></test-tree>
-    <test-virtual-list></test-virtual-list> -->
+  <div class="app-container">
+    <div class="nav-buttons">
+      <button
+        v-for="page in pages"
+        :key="page.path"
+        class="nav-button"
+        @click="router.push(page.path)"
+      >
+        {{ page.name }}
+      </button>
+    </div>
+    <router-view></router-view>
   </div>
 </template>
 
