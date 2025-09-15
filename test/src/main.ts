@@ -19,6 +19,8 @@ import {
   Message,
   Editor,
   OnlineExcel,
+  Signature,
+  DrawingBoard,
 } from "@aeolian-design/components";
 
 const plugins = [
@@ -39,6 +41,8 @@ const plugins = [
   Message,
   Editor,
   OnlineExcel,
+  Signature,
+  DrawingBoard,
 ];
 
 const app = createApp(App);

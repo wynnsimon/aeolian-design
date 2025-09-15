@@ -51,6 +51,8 @@ import {
   Message,
   Editor,
   OnlineExcel,
+  DrawingBoard,
+  Signature,
 } from "@aeolian-design/components";
 
 const plugins = [
@@ -71,6 +73,8 @@ const plugins = [
   Message,
   Editor,
   OnlineExcel,
+  DrawingBoard,
+  Signature,
 ];
 
 // 彩虹背景动画样式

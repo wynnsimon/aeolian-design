@@ -19,6 +19,8 @@ const pages = [
   { name: "Tree", path: "/tree" },
   { name: "Upload", path: "/upload" },
   { name: "VirtualList", path: "/virtual-list" },
+  { name: "Signature", path: "/signature" },
+  { name: "DrawingBoard", path: "/drawing-board" },
 ];
 </script>
 

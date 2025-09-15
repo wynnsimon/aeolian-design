@@ -140,6 +140,13 @@ export default defineConfig({
               { text: "Tooltip 文字提示", link: "/components/tooltip" },
             ],
           },
+          {
+            text: "Other 其他组件",
+            items: [
+              { text: "DrawingBoard 画板", link: "/components/drawingBoard" },
+              { text: "Signature 签名", link: "/components/signature" },
+            ],
+          },
         ],
       },
     ],
@@ -189,6 +196,14 @@ export default defineConfig({
         items: [
           { text: "Message 消息提示", link: "/components/message" },
           { text: "Tooltip 文字提示", link: "/components/tooltip" },
+        ],
+      },
+      {
+        collapsed: false,
+        text: "Other 其他组件",
+        items: [
+          { text: "DrawingBoard 画板", link: "/components/drawingBoard" },
+          { text: "Signature 签名", link: "/components/signature" },
         ],
       },
     ],

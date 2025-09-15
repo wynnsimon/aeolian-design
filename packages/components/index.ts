@@ -17,6 +17,8 @@ import Tooltip from "./components/tooltip";
 import Message from "./components/message";
 import Editor from "./components/editor";
 import OnlineExcel from "./components/onlineExcel";
+import Signature from "./components/signature";
+import DrawingBoard from "./components/drawingBoard";
 export * from "./components/message";
 
 export {
@@ -36,5 +38,7 @@ export {
   Tooltip,
   Message,
   Editor,
-  OnlineExcel
+  OnlineExcel,
+  Signature,
+  DrawingBoard,
 };

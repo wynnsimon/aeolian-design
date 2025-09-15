@@ -14,6 +14,8 @@ import tooltip from '../view/tooltip.vue'
 import tree from '../view/tree.vue'
 import upload from '../view/upload.vue'
 import virtualList from '../view/virtualList.vue'
+import signature from '../view/signature.vue'
+import DrawingBoard from '../view/drawingBoard.vue'
 
 const routes = [
   {
@@ -84,6 +86,16 @@ const routes = [
         path: '/virtual-list',
         name: 'VirtualList',
         component: virtualList
+      },
+      {
+        path: '/signature',
+        name: 'Signature',
+        component: signature
+      },
+      {
+        path: '/drawing-board',
+        name: 'DrawingBoard',
+        component: DrawingBoard
       }
     ]
   }
