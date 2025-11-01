@@ -10,7 +10,7 @@ import {
   useAttrs,
   useSlots,
   watch,
-} from "vue";
+} from "vue-demi";
 import { EyeInvisibleOutlined, EyeOutlined, CloseOutlined } from "@vicons/antd";
 import { formItemContextKey } from "../../types/form";
 

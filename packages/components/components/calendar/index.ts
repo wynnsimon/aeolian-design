@@ -3,7 +3,7 @@ import _Calendar from "./calendar.vue";
 
 const Calendar = withInstall(_Calendar);
 
-declare module "vue" {
+declare module "vue-demi" {
   export interface GlobalComponents {
     AoCalendar: typeof Calendar;
   }

@@ -1,17 +1,16 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref } from "vue";
 
 defineOptions({
-  name: 'test-input'
-})
+  name: "test-input",
+});
 
 const username = ref("aeolian");
-
 </script>
 
 <template>
-<div>
-{{ username }}
+  <div>
+    {{ username }}
     <ao-input
       v-model="username"
       placeholder="请输入用户名"
@@ -32,10 +31,7 @@ const username = ref("aeolian");
       </template>
       <template #append> design </template>
     </ao-input>
-
-</div>
+  </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

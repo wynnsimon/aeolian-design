@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { createNamespace } from "@aeolian-design/utils/src/create";
-import { onMounted, ref } from "vue";
+import { onMounted, ref } from "vue-demi";
 import { virtualListProps } from "../../types/virtual";
 
 defineOptions({

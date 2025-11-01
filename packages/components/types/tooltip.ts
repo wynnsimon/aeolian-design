@@ -1,5 +1,5 @@
 import type { Placement } from "@popperjs/core";
-import type { ExtractPropTypes, PropType } from "vue";
+import type { ExtractPropTypes, PropType } from "vue-demi";
 export const tooltipProps = {
   //  内容
   content: {

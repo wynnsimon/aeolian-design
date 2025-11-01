@@ -3,7 +3,7 @@ import _Tooltip from "./tooltip.vue";
 
 const Tooltip = withInstall(_Tooltip);
 
-declare module "vue" {
+declare module "vue-demi" {
   export interface GlobalComponents {
     AoTooltip: typeof Tooltip;
   }

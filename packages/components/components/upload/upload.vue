@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref } from "vue-demi";
 import { uploadProps } from "../../types/upload";
 import { createChunk, hash } from "./file";
 import axios from "axios";

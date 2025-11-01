@@ -1,4 +1,4 @@
-import { defineComponent, inject } from "vue";
+import { defineComponent, inject } from "vue-demi";
 import { treeInjectKey, treeNodeContentProps } from "../../types/tree";
 
 export default defineComponent({

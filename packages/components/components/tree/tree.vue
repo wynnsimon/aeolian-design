@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, provide, ref, unref, useSlots, watch } from "vue";
+import { computed, onMounted, provide, ref, unref, useSlots, watch } from "vue-demi";
 import { createNamespace } from "@aeolian-design/utils/src/create";
 import AoTreeNode from "./treeNode.vue";
 import {

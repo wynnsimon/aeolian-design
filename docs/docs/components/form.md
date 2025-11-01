@@ -7,7 +7,7 @@
 ### 基础用法
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue';
+import { reactive, ref } from "vue";
 import type { FormInstance } from "@aeolian-design/components/components/form";
 
 const state = reactive({ username: "", password: "" });
@@ -61,17 +61,17 @@ function validateForm() {
       ></ao-input>
     </ao-form-item>
 
-  <ao-form-item
+<ao-form-item
       prop="password"
       label="密码"
       :rules="[{ required: true, message: '请输入密码', trigger: 'blur' }]"
     >
-      <ao-input
+<ao-input
         placeholder="请输入密码"
         v-model="state.password"
         type="password"
       ></ao-input>
-    </ao-form-item>
+</ao-form-item>
 
   <ao-form-item>
     <ao-button type="primary" @click="validateForm"> 校验 </ao-button>
@@ -133,7 +133,7 @@ function validateForm() {
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue';
+import { reactive, ref } from "vue";
 import type { FormInstance } from "@aeolian-design/components/components/form";
 
 const state = reactive({ username: "", password: "" });
@@ -156,30 +156,30 @@ function validateForm() {
 
 ### Form Props
 
-| 参数名 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| model | 表单数据对象 | `Object` | - |
-| rules | 表单验证规则 | `Array` | - |
+| 参数名      | 说明                 | 类型      | 默认值 |
+| ----------- | -------------------- | --------- | ------ |
+| model       | 表单数据对象         | `Object`  | -      |
+| rules       | 表单验证规则         | `Array`   | -      |
 | showMessage | 是否显示校验错误信息 | `boolean` | `true` |
 
 ### Form Methods
 
-| 方法名 | 说明 | 参数 |
-| --- | --- | --- |
-| validate | 对整个表单进行校验,同时支持回调和promise | `Function(callback?: (valid: boolean, fields?: Values) => void)=> Promise` |
+| 方法名   | 说明                                      | 参数                                                                       |
+| -------- | ----------------------------------------- | -------------------------------------------------------------------------- |
+| validate | 对整个表单进行校验,同时支持回调和 promise | `Function(callback?: (valid: boolean, fields?: Values) => void)=> Promise` |
 
 ### FormItem Props
 
-| 参数名 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| prop | 表单域 model 字段名，在使用 validate、resetFields 方法的情况下，该属性是必填的 | `string` | - |
-| label | 标签文本 | `string` | - |
-| rules | 表单验证规则 | `Array` | - |
-| showMessage | 是否显示校验错误信息 | `boolean` | `true` |
+| 参数名      | 说明                                                                           | 类型      | 默认值 |
+| ----------- | ------------------------------------------------------------------------------ | --------- | ------ |
+| prop        | 表单域 model 字段名，在使用 validate、resetFields 方法的情况下，该属性是必填的 | `string`  | -      |
+| label       | 标签文本                                                                       | `string`  | -      |
+| rules       | 表单验证规则                                                                   | `Array`   | -      |
+| showMessage | 是否显示校验错误信息                                                           | `boolean` | `true` |
 
 ### FormItem Slots
 
-| 插槽名 | 说明 |
-| --- | --- |
+| 插槽名  | 说明       |
+| ------- | ---------- |
 | default | 表单项内容 |
-| label | 标签内容 |
+| label   | 标签内容   |

@@ -7,7 +7,7 @@ import {
   type FormItemContext,
   type FormItemValidateState,
 } from "../../types/form";
-import { computed, inject, onMounted, provide, ref } from "vue";
+import { computed, inject, onMounted, provide, ref } from "vue-demi";
 import AsyncValidator, { type Values } from "async-validator";
 
 defineOptions({

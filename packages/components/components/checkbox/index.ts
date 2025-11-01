@@ -3,7 +3,7 @@ import _Checkbox from "./checkbox.vue";
 
 const Checkbox = withInstall(_Checkbox);
 
-declare module "vue" {
+declare module "vue-demi" {
   export interface GlobalComponents {
     AoCheckbox: typeof Checkbox;
   }

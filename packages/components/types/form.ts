@@ -1,5 +1,5 @@
 import type { RuleItem } from "async-validator";
-import type { ExtractPropTypes, InjectionKey, PropType } from "vue";
+import type { ExtractPropTypes, InjectionKey, PropType } from "vue-demi";
 
 export type ArrayAble<T> = T | T[];
 

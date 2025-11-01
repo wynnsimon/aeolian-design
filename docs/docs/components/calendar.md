@@ -7,7 +7,7 @@
 ### 基础用法
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref } from "vue";
 
 const curDate = ref(new Date());
 </script>
@@ -22,7 +22,7 @@ const curDate = ref(new Date());
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref } from "vue";
 
 const curDate = ref(new Date());
 </script>
@@ -30,13 +30,13 @@ const curDate = ref(new Date());
 
 ### Props
 
-| 参数名 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| modelValue | 当前选中的日期 | Date | - |
-| range | 日期范围 | [Date, Date] | - |
+| 参数名     | 说明           | 类型         | 默认值 |
+| ---------- | -------------- | ------------ | ------ |
+| modelValue | 当前选中的日期 | Date         | -      |
+| range      | 日期范围       | [Date, Date] | -      |
 
 ### Events
 
-| 事件名 | 说明 | 回调参数 |
-| --- | --- | --- |
+| 事件名            | 说明               | 回调参数                           |
+| ----------------- | ------------------ | ---------------------------------- |
 | update:modelValue | 选中日期变化时触发 | (val: Date) => val instanceof Date |

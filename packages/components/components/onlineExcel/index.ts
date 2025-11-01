@@ -3,7 +3,7 @@ import _OnlineExcel from "./onlineExcel.vue";
 
 const OnlineExcel = withInstall(_OnlineExcel);
 
-declare module "vue" {
+declare module "vue-demi" {
   export interface GlobalComponents {
     AoOnlineExcel: typeof OnlineExcel;
   }

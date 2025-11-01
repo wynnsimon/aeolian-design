@@ -3,7 +3,7 @@ import _Input from "./input.vue";
 
 const Input = withInstall(_Input);
 
-declare module "vue" {
+declare module "vue-demi" {
   export interface GlobalComponents {
     AoInput: typeof Input;
   }

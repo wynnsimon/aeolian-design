@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
+import { onMounted } from "vue-demi";
 import { onlineExcelProps } from "../../types/onlineExcel";
 import { createNamespace } from "@aeolian-design/utils/src/create";
 import axios from "axios";

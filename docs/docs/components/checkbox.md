@@ -7,7 +7,7 @@
 ### 基础用法
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from "vue"
 const checked = ref(false)
 const indeterminateChecked = ref(false)
 const checkedList = ref(['option1'])
@@ -73,22 +73,22 @@ const checkedList = ref(["option1"]);
 
 ### Props
 
-| 参数名 | 说明 | 类型 | 默认值 | 可选值 |
-| --- | --- | --- | --- | --- |
-| modelValue | 绑定值，可以是字符串、数字、布尔值或数组 | `string \| number \| boolean` | `""` | - |
-| indeterminate | 是否为半选状态 | `boolean` | `false` | `true` \| `false` |
-| disabled | 是否禁用 | `boolean` | `false` | `true` \| `false` |
-| label | 选项标签值 | `string` | `undefined` | - |
+| 参数名        | 说明                                     | 类型                          | 默认值      | 可选值            |
+| ------------- | ---------------------------------------- | ----------------------------- | ----------- | ----------------- |
+| modelValue    | 绑定值，可以是字符串、数字、布尔值或数组 | `string \| number \| boolean` | `""`        | -                 |
+| indeterminate | 是否为半选状态                           | `boolean`                     | `false`     | `true` \| `false` |
+| disabled      | 是否禁用                                 | `boolean`                     | `false`     | `true` \| `false` |
+| label         | 选项标签值                               | `string`                      | `undefined` | -                 |
 
 ### Events
 
-| 事件名 | 说明 | 回调参数 |
-| --- | --- | --- |
-| update:modelValue | 当绑定值变化时触发 | `(value: boolean \| string \| number) => void` |
-| change | 当选中状态改变时触发 | `(value: boolean) => void` |
+| 事件名            | 说明                 | 回调参数                                       |
+| ----------------- | -------------------- | ---------------------------------------------- |
+| update:modelValue | 当绑定值变化时触发   | `(value: boolean \| string \| number) => void` |
+| change            | 当选中状态改变时触发 | `(value: boolean) => void`                     |
 
 ### Slots
 
-| 插槽名 | 说明 |
-| --- | --- |
+| 插槽名  | 说明           |
+| ------- | -------------- |
 | default | 自定义标签内容 |

@@ -3,7 +3,7 @@ import type {
   ExtractPublicPropTypes,
   PropType,
   VNode,
-} from "vue";
+} from "vue-demi";
 
 export const messageProps = {
   message: {

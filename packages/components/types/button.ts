@@ -1,4 +1,4 @@
-import type { ExtractPropTypes, PropType } from "vue"
+import type { ExtractPropTypes, PropType } from "vue-demi"
 
 export type Size='small' | 'medium' | 'large'
 export type Type='primary' | 'success' | 'warning' | 'danger' | 'error' | 'info' | 'default'

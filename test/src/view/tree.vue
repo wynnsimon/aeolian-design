@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref } from "vue";
 import { type Key } from "@aeolian-design/components/types/tree";
 
 defineOptions({
@@ -95,7 +95,6 @@ function createLabel(level: number): string {
 //     }, 1000);
 //   });
 // }
-
 
 const value = ref<Key[]>([]);
 </script>

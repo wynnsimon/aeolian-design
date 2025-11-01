@@ -3,7 +3,7 @@ import _Button from "./button.vue";
 
 const Button = withInstall(_Button);
 
-declare module "vue" {
+declare module "vue-demi" {
   export interface GlobalComponents {
     AoButton: typeof Button;
   }

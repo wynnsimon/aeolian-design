@@ -7,7 +7,7 @@
 使用 [content](file://d:\Project\aeolian-design\uno.config.ts#L4-L6) 属性来定义 Tooltip 的内容。
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from "vue"
 const visible = ref(false)
 </script>
 
@@ -139,11 +139,11 @@ const visible = ref(false)
 
 ### Props
 
-| 参数名    | 说明               | 类型   | 可选值                                                                                                                          | 默认值 |
-| --------- | ------------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| 参数名    | 说明               | 类型            | 可选值                                                                                                                          | 默认值 |
+| --------- | ------------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------ |
 | content   | 显示的内容         | string \| VNode | —                                                                                                                               | ''     |
-| trigger   | 触发方式           | string | hover / click                                                                                                                   | hover  |
-| placement | Tooltip 出现的位置 | string | top / top-start / top-end / bottom / bottom-start / bottom-end / left / left-start / left-end / right / right-start / right-end | top    |
+| trigger   | 触发方式           | string          | hover / click                                                                                                                   | hover  |
+| placement | Tooltip 出现的位置 | string          | top / top-start / top-end / bottom / bottom-start / bottom-end / left / left-start / left-end / right / right-start / right-end | top    |
 
 ### Slots
 

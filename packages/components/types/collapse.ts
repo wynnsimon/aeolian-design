@@ -1,4 +1,4 @@
-import type { ExtractPropTypes, PropType, Ref, InjectionKey } from "vue";
+import type { ExtractPropTypes, PropType, Ref, InjectionKey } from "vue-demi";
 
 export type NameType = string | number;
 export const collapseProps = {
