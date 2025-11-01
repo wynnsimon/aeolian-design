@@ -3,7 +3,7 @@ import _Signature from "./signature.vue";
 
 const Signature = withInstall(_Signature);
 
-declare module "vue" {
+declare module "vue-demi" {
   export interface GlobalComponents {
     AoSignature: typeof Signature;
   }

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref } from "vue-demi";
 import { editorProps } from "../../types/editor";
 import { createNamespace } from "@aeolian-design/utils/src/create";
 

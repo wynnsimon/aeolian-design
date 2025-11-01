@@ -9,7 +9,7 @@ import { createNamespace } from "@aeolian-design/utils/src/create";
 import dayjs from "dayjs";
 import type { Dayjs } from "dayjs";
 import "dayjs/locale/zh-cn";
-import { computed } from "vue";
+import { computed } from "vue-demi";
 
 defineOptions({
   name: "ao-calendar",

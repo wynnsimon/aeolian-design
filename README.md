@@ -1,6 +1,6 @@
 # Aeolian Design
 
-一个基于 Vue 3 和UnoCSS 的现代化 UI 组件库，专为构建美观、高性能的 Web 应用而设计。
+一个基于 Vue 3 和 UnoCSS 的现代化 UI 组件库，专为构建美观、高性能的 Web 应用而设计。
 
 ## 特性
 
@@ -14,17 +14,18 @@
 ## 按需引入
 
 ```ts
-import { createApp } from 'vue'
-import App from './App.vue'
-import { Button, Input } from '@aeolian-design/components'
+import { createApp } from "vue";
+import App from "./App.vue";
+import { Button, Input } from "@aeolian-design/components";
 
-const app = createApp(App)
-app.use(Button)
-app.use(Input)
-app.mount('#app')
+const app = createApp(App);
+app.use(Button);
+app.use(Input);
+app.mount("#app");
 ```
 
 ## 组件列表
+
 - Button 按钮
 - Icon 图标
 - Input 输入框
@@ -38,7 +39,6 @@ app.mount('#app')
 - Collapse 折叠面板
 - Tooltip 文字提示
 
-
 ```
 aeolian-design/
 ├── docs/              # 文档站点
@@ -49,11 +49,12 @@ aeolian-design/
 └── package.json
 ```
 
-
 # 许可证
+
 [MIT](LICENSE.txt)
 
 # 感谢
+
 本项目受到以下开源项目的启发：
 
 - [Element Plus](https://element-plus.org/zh-CN/)

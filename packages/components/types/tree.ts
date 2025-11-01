@@ -3,7 +3,7 @@ import type {
   InjectionKey,
   PropType,
   SetupContext,
-} from "vue";
+} from "vue-demi";
 
 export type Key = string | number;
 

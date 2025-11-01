@@ -3,7 +3,7 @@ import _Icon from "./icon.vue";
 
 const Icon = withInstall(_Icon);
 
-declare module "vue" {
+declare module "vue-demi" {
   export interface GlobalComponents {
     AoIcon: typeof Icon;
   }

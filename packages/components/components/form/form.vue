@@ -6,7 +6,7 @@ import {
   type FormContext,
   type FormItemContext,
 } from "../../types/form";
-import { provide } from "vue";
+import { provide } from "vue-demi";
 import type { Values } from "async-validator";
 
 defineOptions({

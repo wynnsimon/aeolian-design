@@ -1,6 +1,6 @@
 <!-- collapseItem.vue -->
 <script setup lang="ts">
-import { computed, inject, ref, watch } from "vue";
+import { computed, inject, ref, watch } from "vue-demi";
 import { collapseContextKey, collapseItemProps } from "../../types/collapse";
 import { createNamespace } from "@aeolian-design/utils/src/create";
 

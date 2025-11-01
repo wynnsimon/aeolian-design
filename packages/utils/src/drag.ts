@@ -5,7 +5,7 @@ import {
   ref,
   unref,
   type Ref,
-} from "vue";
+} from "vue-demi";
 
 type DragOptions = {
   draggingElement?: any;

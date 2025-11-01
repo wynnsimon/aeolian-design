@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { createNamespace } from "@aeolian-design/utils/src/create";
 import { buttonEmits, buttonProps, type Type } from "../../types/button";
-import { computed, useSlots } from "vue";
+import { computed, useSlots } from "vue-demi";
 import { Loading3QuartersOutlined } from "@vicons/antd";
 
 defineOptions({

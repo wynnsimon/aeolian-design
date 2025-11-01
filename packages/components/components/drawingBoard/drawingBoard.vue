@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { onMounted, ref } from "vue-demi";
 import { drawingBoardEmits, drawingBoardProps } from "../../types/drawingBoard";
 import { createNamespace } from "@aeolian-design/utils/src/create";
 

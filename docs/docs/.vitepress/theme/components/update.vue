@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import { useData } from 'vitepress'
-import { computed } from 'vue'
-const { page } = useData()
+import { useData } from "vitepress";
+import { computed } from "vue";
+const { page } = useData();
 
-const date = computed(
-  () => new Date(page.value.lastUpdated!)
-)
+const date = computed(() => new Date(page.value.lastUpdated!));
 </script>
 
 <template>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { createNamespace } from "@aeolian-design/utils/src/create";
 import { checkboxProps, checkboxEmits } from "../../types/checkbox";
-import { computed, onMounted, ref, watch } from "vue";
+import { computed, onMounted, ref, watch } from "vue-demi";
 
 defineOptions({
   name: "ao-checkbox",

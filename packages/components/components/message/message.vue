@@ -3,7 +3,7 @@ import { messageProps } from "../../types/message";
 import { createNamespace } from "@aeolian-design/utils/src/create";
 import AoIcon from "../icon";
 import { CloseOutlined } from "@vicons/antd";
-import { computed, nextTick, onMounted, ref, watch } from "vue";
+import { computed, nextTick, onMounted, ref, watch } from "vue-demi";
 import { getLastBottomOffset } from "./message";
 
 defineOptions({

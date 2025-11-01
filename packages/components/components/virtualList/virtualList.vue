@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, ref } from "vue-demi";
 import { createNamespace } from "@aeolian-design/utils/src/create";
 import { virtualListProps } from "../../types/virtual";
 

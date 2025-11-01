@@ -2,7 +2,7 @@
 import { createNamespace } from "@aeolian-design/utils/src/create";
 import { treeNodeEmits, treeNodeProps } from "../../types/tree";
 import { CaretRightOutlined, Loading3QuartersOutlined } from "@vicons/antd";
-import { computed } from "vue";
+import { computed } from "vue-demi";
 import AoTreeNodeContext from "./treeNodeContext";
 import AoCheckbox from "../checkbox/checkbox.vue";
 

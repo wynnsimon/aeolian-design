@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, reactive, ref, watch, type Ref } from "vue";
+import { onMounted, onUnmounted, reactive, ref, watch, type Ref } from "vue-demi";
 import { tooltipProps, tooltipEmits } from "../../types/tooltip";
 import { createNamespace } from "@aeolian-design/utils/src/create";
 import { createPopper, type Instance } from "@popperjs/core";

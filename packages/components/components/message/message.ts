@@ -1,6 +1,6 @@
 import type { MessageProps, MessageContext } from "../../types/message";
 import Message from ".";
-import { h, shallowReactive, render, ref, computed } from "vue";
+import { h, shallowReactive, render, ref, computed } from "vue-demi";
 
 const zIndex = ref(0);
 function useZIndex(initialValue: number = 2000) {

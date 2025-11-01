@@ -5,7 +5,7 @@ import _FormItem from "../form/formItem.vue";
 const Form = withInstall(_Form);
 const FormItem = withInstall(_FormItem);
 
-declare module "vue" {
+declare module "vue-demi" {
   export interface GlobalComponents {
     AoForm: typeof Form;
     AoFormItem: typeof FormItem;

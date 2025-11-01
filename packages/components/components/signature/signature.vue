@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { signatureProps } from "../../types/signature";
 import { createNamespace } from "@aeolian-design/utils/src/create";
-import { onMounted, ref } from "vue";
+import { onMounted, ref } from "vue-demi";
 import { useDraggable } from "@vueuse/core";
-import { useTemplateRef } from "vue";
+import { useTemplateRef } from "vue-demi";
 defineOptions({
   name: "ao-signature",
 });

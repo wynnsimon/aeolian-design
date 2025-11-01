@@ -1,4 +1,4 @@
-import type {  PropType, ExtractPropTypes } from "vue";
+import type {  PropType, ExtractPropTypes } from "vue-demi";
 
 export const inputProps = {
   // 输入框的类型

@@ -1,17 +1,16 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref } from "vue";
 
 defineOptions({
-  name: 'test-checkbox'
-})
+  name: "test-checkbox",
+});
 
 const check = ref(true);
-
 </script>
 
 <template>
-<div>
-      {{ check }}
+  <div>
+    {{ check }}
     <ao-checkbox
       v-model="check"
       :disabled="false"
@@ -19,10 +18,7 @@ const check = ref(true);
       label="测试"
       @change="(value) => console.log(value)"
     ></ao-checkbox>
-
-</div>
+  </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

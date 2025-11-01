@@ -3,7 +3,7 @@ import _Tree from "./tree.vue";
 
 const Tree = withInstall(_Tree);
 
-declare module "vue" {
+declare module "vue-demi" {
   export interface GlobalComponents {
     AoTree: typeof Tree;
   }

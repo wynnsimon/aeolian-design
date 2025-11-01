@@ -3,7 +3,7 @@ import _DrawingBoard from "./drawingBoard.vue";
 
 const DrawingBoard = withInstall(_DrawingBoard);
 
-declare module "vue" {
+declare module "vue-demi" {
   export interface GlobalComponents {
     AoDrawingBoard: typeof DrawingBoard;
   }

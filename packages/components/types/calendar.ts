@@ -1,4 +1,4 @@
-import type { ExtractPropTypes, PropType } from "vue";
+import type { ExtractPropTypes, PropType } from "vue-demi";
 
 export const calendarProps = {
   modelValue: {

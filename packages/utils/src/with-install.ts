@@ -1,4 +1,4 @@
-import type { Plugin, App } from "vue";
+import type { Plugin, App } from "vue-demi";
 
 // 修改泛型约束为 any，并确保返回值兼容组件和插件
 export function withInstall<T>(comp: T) {

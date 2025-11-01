@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, provide, ref, watch } from "vue";
+import { onMounted, provide, ref, watch } from "vue-demi";
 import {
   collapseContextKey,
   collapseProps,

@@ -18,6 +18,7 @@
     "async-validator": "^4.2.5",
     "dayjs": "^1.11.13",
     "vue": "^3.5.17",
+    "vue-demi": "^0.14.10",
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
@@ -34,5 +35,14 @@
     "unocss": "^66.3.3",
     "unplugin-vue-define-options": "3.0.0-beta.17",
     "vite": "^5"
+  },
+  "peerDependencies": {
+    "@vue/composition-api": "^1.0.0-rc.1",
+    "vue": "^2.0.0 || >=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    }
   }
 }

@@ -3,7 +3,7 @@ import _CanvasTable from "./canvasTable.vue";
 
 const CanvasTable = withInstall(_CanvasTable);
 
-declare module "vue" {
+declare module "vue-demi" {
   export interface GlobalComponents {
     AoCanvasTable: typeof CanvasTable;
   }

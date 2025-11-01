@@ -3,7 +3,7 @@ import _Message from "./message.vue";
 
 const Message = withInstall(_Message);
 
-declare module "vue" {
+declare module "vue-demi" {
   export interface GlobalComponents {
     AoMessage: typeof Message;
   }

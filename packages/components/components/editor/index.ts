@@ -3,7 +3,7 @@ import _Editor from "./editor.vue";
 
 const Editor = withInstall(_Editor);
 
-declare module "vue" {
+declare module "vue-demi" {
   export interface GlobalComponents {
     AoEditor: typeof Editor;
   }

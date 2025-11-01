@@ -5,7 +5,7 @@ import _CollapseItem from "./collapseItem.vue";
 const Collapse = withInstall(_Collapse);
 const CollapseItem = withInstall(_CollapseItem);
 
-declare module "vue" {
+declare module "vue-demi" {
   export interface GlobalComponents {
     AoCollapse: typeof Collapse;
     AoCollapseItem: typeof CollapseItem;

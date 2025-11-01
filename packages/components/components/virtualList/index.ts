@@ -3,7 +3,7 @@ import _VirtualList from "./virtualList.vue";
 
 const VirtualList = withInstall(_VirtualList);
 
-declare module "vue" {
+declare module "vue-demi" {
   export interface GlobalComponents {
     AoVirtualList: typeof VirtualList;
   }
